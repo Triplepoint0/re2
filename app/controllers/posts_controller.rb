@@ -18,18 +18,12 @@ class PostsController < ApplicationController
     
   def show
     @user = current_user
-    @comment = Comment.new
     @post = Post.find(params[:id])
-    @like_count = Like.where(post_id: params[:id]).count
-    @is_user_liked = Like.where(user_id: @user.id, post_id: params[:id]).count != 0
-    @like = Like.new()
+  
   end
 
   def new
     @post = Post.new
-
-    
-
     @user = current_user
   end
 

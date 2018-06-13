@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_11_161400) do
+ActiveRecord::Schema.define(version: 2018_06_11_040500) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2018_06_11_161400) do
     t.string "first_name"
     t.string "last_name"
     t.string "username"
-    t.string "picture"
     t.string "company_name"
     t.string "location"
     t.index ["email"], name: "index_users_on_email", unique: true

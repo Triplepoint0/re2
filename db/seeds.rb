@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(
-  first_name: "Cobra",
-  last_name: "Good",
-  username: "cobra",
+  first_name: "Admin",
+  last_name: "Password",
+  username: "admin",
   picture: "/assets/cobra.jpg",
-  email: "cobra@cobra.com", 
-  password: "goodcobra"
+  email: "admin@admin.com", 
+  password: "password"
   ).save

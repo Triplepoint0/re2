@@ -12,6 +12,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Order Number</th>
+                                                <th>Company Name</th>
                                                 <th>Materials</th>
                                                 <th>Pickup Location</th>
                                                 <th>Pickup Time</th>
@@ -23,6 +24,7 @@
                                         <tbody>
                                             <tr>
                                                 <td><%= post.id %></td>
+                                                <td><%= post.user.company_name%>
                                                 <td><%= post.materials %></td>
                                                 <td><%= post.pickup_location %></td>
                                                 <td><%= post.start_time.strftime("%I:%M %p") %></td>

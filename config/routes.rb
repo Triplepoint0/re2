@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 
   get 'calc/index', :to => 'calc#index'
   resources :posts
+  resources :calc
+  
+  
 end
