@@ -10,7 +10,7 @@ User.create(
   first_name: "Admin",
   last_name: "Password",
   username: "admin",
-  picture: "/assets/cobra.jpg",
+  # picture: "/assets/cobra.jpg",
   email: "admin@admin.com", 
   password: "password"
   ).save
