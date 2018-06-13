@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 top-m">
+      <h1 class="mt-4">Location: <%= @post.pickup_location %></h1>
+          <p class="lead">
+            Topic:
+           
+          </p>
+            <p class="lead">
+            Company Name:
+            <%= @post.user.company_name %><br>
+            <% if @post.user_id == current_user.id %>
+              <%= link_to 'Delete this post. ', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+              <%= link_to 'Edit this post. ', edit_post_path(@post) %>
+            <% end %>
+          </p>
+
+          <hr>
+          <p>Created <%= time_ago_in_words(@post.created_at) %> ago.</p>
+          <hr>
+     
+          <hr>
+          Materials: <%= @post.materials %> 
+          <br>
+          Pickup Location: <%= @post.pickup_location %>
+          <br>
+          Pickup Time: <%= @post.start_time.strftime("%I:%M %p") %>
+          <br>
+          Lbs: <%= @post.pounds %>
+          <hr>
+       
+      </div>
+  </div>
+</div>
+

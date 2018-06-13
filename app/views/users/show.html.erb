@@ -1,0 +1,47 @@
+<div class="container">
+
+<div class="row">
+<div class="d-flex flex-wrap top-m3">
+
+</div>
+</div>
+</div>
+<div class="row col-12-sm">
+   <% @user.posts.reverse.each do |post| %>
+     <div class="topiko-caro row">
+       <div class="d-flex flex-wrap">
+         <div class="card shift shadow-lg p-3 mb-5 bg-white rounded" style="width: 20rem;">
+           <div class="pulsated">
+            
+               <div class="avatar">
+                
+               </div>
+           </div>
+           <div class="card-body">
+             <p class="post-meta">
+             
+               <h5 class="card-title card-dark" style="color:blue;">
+                 Pickup date: <%= post.start_time.strftime("%b %e, %l:%M %p") %>
+               </h5>
+               <p class="card-text">
+                 Pickup location: <%= post.pickup_location %>
+               </p>
+               <p class="card-text">
+                 Lbs: <%= post.pounds %>
+               </p>
+               <p class="card-text">
+                 Material: <%= post.materials %>
+               </p>
+                 <span class="published">Order placed <%= time_ago_in_words(post.created_at) %> ago:</span>
+               <span class="meta-separator post-meta"></span>
+               <span h7 class="card-title">
+                 <%= link_to post.user.username, current_user %>
+               </span><br>
+               
+                 <%= link_to "View Order", post, class: "btn btn-outline-primary" %>
+              
+           </div>
+         </div>
+       </div>
+     </div>
+<% end %>

@@ -1,0 +1,24 @@
+
+<div class="container">
+<h1>Header</h1>
+<%= bootstrap_form_with(model: @post, local: true) do |f| %>
+<div class="top-m">
+<p>Hello</p>
+  <form>
+                <div class="row" style="border: solid black 2px; padding: 5px 0 5px 0; border-radius: 15px 50px;background-image: linear-gradient(to right, #72A82B 0%, #A7FA65 100%); box-shadow: 5px 5px 3px grey; color:white; padding: 5px 5px 5px 20px; text-shadow: 2px 2px 0px black;">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <%= f.select :materials, ["Paper", "Plastic", "Metals"], label: "Materials:" %>
+                        </div>
+                        <div class="form-group">
+                          <%= f.select :pounds, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], label: "Lbs:" %>
+                        </div>
+                      
+                    <div class="col-md-12">
+                    <%= f.submit({:class=> 'btn btn-dark'}) %>
+                    </div>
+                </div>
+                </form>
+</div>
+ <% end %>
+</div>

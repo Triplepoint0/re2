@@ -1,0 +1,50 @@
+<div class="container">
+  <h1 class="header"></h1>
+
+    <!-- START BASIC TABLE SAMPLE -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading top-m3">
+                                    <h3 class="panel-title">Open Orders</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>These orders have not been picked up yet...</p>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Order Number</th>
+                                                <th>Materials</th>
+                                                <th>Pickup Location</th>
+                                                <th>Pickup Time</th>
+                                                <th>Pounds</th>
+                                                <th>Edit Order</th>
+                                            </tr>
+                                        </thead>
+                                         <% @posts.reverse.each do |post| %>
+                                        <tbody>
+                                            <tr>
+                                                <td><%= post.id %></td>
+                                                <td><%= post.materials %></td>
+                                                <td><%= post.pickup_location %></td>
+                                                <td><%= post.start_time.strftime("%I:%M %p") %></td>
+                                                <td><%= post.pounds %></td>
+                                                <td ><%= link_to "View Post", post, class: "btn btn-outline-danger" %></td>
+
+                                            </tr>
+                                        </tbody>
+                                        <% end %>
+                                    </table>                                
+                                </div>
+                            </div>
+                             
+                            <!-- END BASIC TABLE SAMPLE -->
+
+<%= month_calendar events: @posts do |date, posts| %>
+  <%= date %>
+
+  <% posts.each do |post| %>
+  <br>
+    <strong style="color:green;">
+      <%= post.start_time.strftime("%I:%M %p") %>
+    </strong>
+  <% end %>
+<% end %>

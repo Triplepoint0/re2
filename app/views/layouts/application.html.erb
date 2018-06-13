@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recycler</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Fredoka+One", "application" %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<body>
+
+  <div id="flipkart-navbar" style="background-image: linear-gradient(to right, #72A82B 0%, #A7FA65 100%); box-shadow: 5px 5px 3px grey;">
+    
+     <span>
+    <%= link_to image_tag("relogo.png"), home_index_path, style: "margin-top:5px; position:absolute; padding-left:40px;"%>
+    </span>
+    
+    <div class="container">
+        <nav class="row row1 stroke">
+            <ul class="largenav pull-right">
+                <li class="upper-links "><%= link_to "Home", home_index_path, class: "links" %></li>
+                <li class="upper-links "><%= link_to "Calculate", calc_index_path, class: "links" %></li>
+
+                <li class="upper-links">
+                </li>
+                <li class="upper-links dropdown"><a class="links2" href="#">Orders</a>
+                    <ul class="dropdown-menu">
+                        <li class="profile-li"><%= link_to "New", new_post_path, class: "links" %></li>
+                         <li class="profile-li"><%= link_to "All Orders", posts_path, class: "links" %></li>
+                    </ul>
+                </li>
+                   <li class="upper-links dropdown"><a class="links2" href="#">Account</a>
+                    <ul class="dropdown-menu">
+                        <li class="profile-li"><%= link_to "View Profile", current_user, class: "links" %></li>
+                        <li class="profile-li"><%= link_to "Account Settings", edit_user_registration_path, class: "links" %></li>
+                        <li class="profile-li"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "links" %></li>
+                    </ul>
+                </li>
+                   
+               
+            </ul>
+        </nav>
+        <div class="row">
+            <div class="col-sm-2">
+                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Adulting</span></h2>
+            
+            </div>
+           
+       <!--<div class="container">
+  <button class="btn btn-default btn-sm btn-link links" style="font-size:30px;">
+    <span class="glyphicon glyphicon-bullhorn"></span>
+  </button>
+  <span class="badge badge-notify">3</span>
+</div>-->
+        </div>
+    </div>
+</div>
+
+<%= yield %>
+
+
+<!-- Footer -->
+
+<!-- Footer -->
+
+  </body>
+</html>
