@@ -19,66 +19,66 @@ You are free to use the code in Commercial or non-commercial projects
  //Set up an associative array
  //The keys represent the size of the cake
  //The values represent the cost of the cake i.e A 10" cake cost's $35
- var cake_prices = new Array();
- cake_prices["Papers"]=.58;
- cake_prices["Plastics"]=25;
- cake_prices["Metals"]=35;
+ var material_prices = new Array();
+ material_prices["Papers"]=.58;
+ material_prices["Plastics"]=.135;
+ material_prices["Metals"]=.48;
  
  
  //Set up an associative array 
  //The keys represent the filling type
  //The value represents the cost of the filling i.e. Lemon filling is $5,Dobash filling is $9
  //We use this this array when the user selects a filling from the form
- var filling_prices= new Array();
- filling_prices["None"]=0;
- filling_prices["one"]=1;
- filling_prices["two"]=2;
- filling_prices["three"]=3;
- filling_prices["four"]=4;
- filling_prices["five"]=5;
- filling_prices["six"]=6;
- filling_prices["seven"]=7;
- filling_prices["eight"]=8;
- filling_prices["nine"]=9;
- filling_prices["ten"]=10;
+ var pounds= new Array();
+ pounds["none"]=0;
+ pounds["one"]=1;
+ pounds["two"]=2;
+ pounds["three"]=3;
+ pounds["four"]=4;
+ pounds["five"]=5;
+ pounds["six"]=6;
+ pounds["seven"]=7;
+ pounds["eight"]=8;
+ pounds["nine"]=9;
+ pounds["ten"]=10;
 
  
 	 
 	 
 // getCakeSizePrice() finds the price based on the size of the cake.
 // Here, we need to take user's the selection from radio button selection
-function getCakeSizePrice()
+function getMaterialPrice()
 {  
-    var cakeSizePrice=0;
+    var materialPrice=0;
     //Get a reference to the form id="cakeform"
     var theForm = document.forms["calcform"];
     //Get a reference to the cake the user Chooses name=selectedCake":
-    var selectedCake = theForm.elements["selectedmat"];
+    var selectedMaterial = theForm.elements["selectedmat"];
     //Here since there are 4 radio buttons selectedCake.length = 4
     //We loop through each radio buttons
-    for(var i = 0; i < selectedCake.length; i++)
+    for(var i = 0; i < selectedMaterial.length; i++)
     {
         //if the radio button is checked
-        if(selectedCake[i].checked)
+        if(selectedMaterial[i].checked)
         {
             //we set cakeSizePrice to the value of the selected radio button
             //i.e. if the user choose the 8" cake we set it to 25
             //by using the cake_prices array
             //We get the selected Items value
             //For example cake_prices["Round8".value]"
-            cakeSizePrice = cake_prices[selectedCake[i].value];
+            totalPrice = material_prices[selectedMaterial[i].value];
             //If we get a match then we break out of this loop
             //No reason to continue if we get a match
             break;
         }
     }
     //We return the cakeSizePrice
-    return cakeSizePrice;
+    return totalPrice;
 }
 
 //This function finds the filling price based on the 
 //drop down selection
-function getFillingPrice()
+function getWeight()
 {
     var cakeFillingPrice=0;
     //Get a reference to the form id="cakeform"
@@ -88,10 +88,10 @@ function getFillingPrice()
      
     //set cakeFilling Price equal to value user chose
     //For example filling_prices["Lemon".value] would be equal to 5
-    cakeFillingPrice = filling_prices[selectedFilling.value];
+    weightinlbs = pounds[selectedFilling.value];
 
     //finally we return cakeFillingPrice
-    return cakeFillingPrice;
+    return weightinlbs;
 }
 
 //candlesPrice() finds the candles price based on a check box selection
@@ -100,12 +100,12 @@ function getFillingPrice()
 {
     //Here we get the total price by calling our function
     //Each function returns a number so by calling them we add the values they return together
-    var cakePrice = getCakeSizePrice() * getFillingPrice();
+    var finalPrice = getMaterialPrice() * getWeight();
     
     //display the result
     var divobj = document.getElementById('totalPrice');
     divobj.style.display='block';
-    divobj.innerHTML = "Total Payout: $"+cakePrice;
+    divobj.innerHTML = "Total Payout: $"+finalPrice;
 
 }
 
