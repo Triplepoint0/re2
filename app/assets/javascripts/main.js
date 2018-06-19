@@ -34,7 +34,7 @@ You are free to use the code in Commercial or non-commercial projects
 
 function getMaterialPrice()
 {  
-    var materialPrice=0;
+    var totalPrice=0;
 
     var theForm = document.forms["calcform"];
 
@@ -57,11 +57,11 @@ function getMaterialPrice()
 
 function getWeight()
 {
-    var cakeFillingPrice=0;
+    var weightinlbs=0;
    
     var theForm = document.forms["calcform"];
   
-     var selectedFilling = theForm.elements["filling"];
+    var selectedFilling = theForm.elements["filling"];
 
     weightinlbs = pounds[selectedFilling.value];
 
